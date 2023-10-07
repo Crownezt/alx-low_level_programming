@@ -14,9 +14,9 @@
 
 int main(void)
 {
-	int n = 'a';
+	char n = 'a';
 
-	while (n <= 'z')
+	while (n < 'z')
 	{
 		if (n != 'e' && n != 'q')
 		{
