@@ -14,16 +14,11 @@
 
 int main(void)
 {
-	char n = 'a';
+	char i;
 
-	while (n < 'z')
-	{
-		if (n != 'e' && n != 'q')
-		{
-			putchar(n);
-			n++;
-		}
-	}
+	for (i = 'a'; i <= 'z'; i++)
+		if (i != 'q' && i != 'e')
+			putchar(i);
 	putchar('\n');
 	return (0);
 }
