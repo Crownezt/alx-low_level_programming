@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strncat - a function that concatenates two strings.
+ * _strncpy - a function that concatenates two strings.
  * The _strncat function is similar to the _strcat function,
  * except that it will use at most n bytes from src; and
  * src does not need to be null-terminated if it contains n or more bytes
@@ -15,15 +15,19 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	int i = 0;
-	int slen = 0;
 
-	while (src[i++])
-		slen++;
-
-	for (i = 0; src[i] && i < n; i++)
+	while (i < n && src[i] != '\0')
+	{
 		dest[i] = src[i];
-	for (i = slen; i < n; i++)
+		i++;
+	}
+
+	while (i < n)
+	{
 		dest[i] = '\0';
+		 i++;
+	}
+
 	return (dest);
 
 }
