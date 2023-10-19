@@ -21,17 +21,16 @@
 char *leet(char *s)
 {
 	int i, j;
-
-	char val1[] = "aAeEoOtTlL";
-	char val2[] = "4433007711";
+	char s1[] = "aAeEoOtTlL";
+	char s2[] = "4433007711";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 10; j++)
 		{
-			if (s[i] == val1[j])
+			if (s[i] == s1[j])
 			{
-				s[i] = val2[j];
+				s[i] = s2[j];
 			}
 		}
 	}
