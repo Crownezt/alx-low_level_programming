@@ -16,4 +16,3 @@ int main(void)
     printf("%s\n", t);
     return (0);
 }
-julien@ubuntu:~/0x07$
