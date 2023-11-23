@@ -6,16 +6,17 @@
  *
  *Return: the number of nodes
  */
-int sum_listint(listint_t *head)
-{
-	int total = 0;
-	listint_t *temp = head;
 
-	while (temp)
+size_t print_listint(const listint_t *h)
+{
+	size_t num = 0;
+
+	while (h)
 	{
-		total += temp->n;
-		temp = temp->next;
+		printf("%d\n", h->n);
+		num++;
+		h = h->next;
 	}
 
-	return (sum);
+	return (num);
 }
