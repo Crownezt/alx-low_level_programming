@@ -30,7 +30,7 @@ void error_file(int file_from, int file_to, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int files_to, files_from, error_close;
+	int file_to, file_from, error_close;
 	ssize_t chars_num, nwr;
 	char buff[1024];
 
@@ -40,32 +40,32 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	files_from = open(argv[1], O_RDONLY);
-	files_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 
 	chars_num = 1024;
 	while (chars_num == 1024)
 	{
-		chars_num = read(files_from, buff, 1024);
+		chars_num = read(file_from, buff, 1024);
 		if (chars_num == -1)
 			error_file(-1, 0, argv);
-		nwr = write(files_to, buff, chars_num);
+		nwr = write(file_to, buff, chars_num);
 		if (nwr == -1)
 			error_file(0, -1, argv);
 	}
 
-	error_close = close(files_from);
+	error_close = close(file_from);
 	if (error_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", files_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 
-	error_close = close(files_to);
+	error_close = close(file_to);
 	if (error_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", files_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	return (0);
