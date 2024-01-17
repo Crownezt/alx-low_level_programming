@@ -1,4 +1,4 @@
-#indef _LISTS_
+#ifndef _LISTS_
 #define _LISTS_
 
 #include <stdio.h>
@@ -32,5 +32,4 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 
 
 #endif
-
 
